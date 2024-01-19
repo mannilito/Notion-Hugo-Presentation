@@ -1,174 +1,129 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+# Notion-Hugo
 
-- [EBI reveal-hugo template](#ebi-reveal-hugo-template)
-- [Install](#install)
-- [Usage](#usage)
-  - [Serve](#serve)
-  - [Edit](#edit)
-  - [Maths](#maths)
-  - [Theme/Styling](#themestyling)
-  - [Logo](#logo)
-- [Deploy](#deploy)
+![image](https://user-images.githubusercontent.com/52968553/188502839-1de28ae0-6111-4387-99fe-fbc7d87dbc4c.png)
 
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+Notion-Hugo allows you to use [Notion](https://www.notion.so/) as your CMS and deploy your pages as a static website with [Hugo](https://gohugo.io/). So you have the full power of Notion for creating new content, with Hugo and its wonderful [ecosystem of themes](https://themes.gohugo.io/) take care of the rest for you.
 
-# Reveal-Hugo Template mod by MF
+## Get Started
 
-This repository is a template for a [reveal.js][revealjs] presentation.  
+### Create a new GitHub repository from this template
 
-# Install
+Click the green "Use this template" button in the upper-right corner to create your repo from this template. Choose "public" for the repository visibility.
 
-Follow the installation guidelines here:
+<picture>
+  <source width="382" media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/52968553/188245872-0aa640e4-ea85-4fc7-8035-7a267b7a28a2.png">
+  <source width="382" media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/52968553/188245777-5b5d0e3d-b125-47cd-aa08-ed8e75f20773.png">
+  <img width="382" alt="Use this template button" src="https://user-images.githubusercontent.com/52968553/188245777-5b5d0e3d-b125-47cd-aa08-ed8e75f20773.png">
+</picture>
 
-```
+### Create a Notion integration
 
-# Usage
+Visit [my integrations](https://www.notion.so/my-integrations) and login with your Notion account.
 
-## Serve
+Click on "Create new integration" to create a new internal integration.
 
-To serve the presentation in your web browser run the following from the root directory
-of the repository.
+<img width="891" alt="Create new integration" src="https://user-images.githubusercontent.com/52968553/188289065-d2e3626e-d250-4d42-9fb4-8f641f4807ea.png">
 
-```sh
-hugo serve
-```
+In the capabilities section, select "Read Content" and "Read user information including email address". The "Read Content" permission is necessary for Notion-Hugo to pull your Notion content, and the "Read user information including email address" permission is used to fill front matters with author information. Notion-Hugo does not collect any of your information.
 
-In your web browser, navigate to http://localhost:1313/ . Every time you make changes
-this webpage will auto-reload to reflect those changes.
+<img width="891" alt="Setup capabilities" src="https://user-images.githubusercontent.com/52968553/188289098-d318ebba-46a5-4d41-bfcd-ac0f09f35f82.png">
 
-You should see a screen that looks like this
+Click the submit button to finish creating the Notion integration.
 
+### Setup secrets for GitHub Action
 
-## Edit
+Copy the Internal Integration Token.
 
-The [reveal-hugo docs][reveal-hugo] have a great [tutorial][reveal-hugo-tut] to get you
-up and running. There is also a thorough blog post [here][forestry-blog].
+<img width="816" alt="Copy the Internal Integration Token" src="https://user-images.githubusercontent.com/52968553/188298208-23d96254-f8a7-4571-8863-0d920bb82143.png">
 
-The `config.toml` is a central place for defining the settings of your presentation.
-A full list of configurations can be found [here][config].
+Navigate to the GitHub repo you just created, click on Settings -> Secrets -> Actions.
 
-The slides themselves are within `content/`. `_index.md` is the "root" for your slides
-and you can also define presentation-wide settings in this file too. You can put all of
-your slides in `_index.md` if you wish, but you can likewise break them up into sections.
-Sections will be vertically stacked within the presentation when placed in `content/home/`.
+Click the "New Repository Secret" button on the top right.
 
-So if we had an `_index.md` file that looked like This
+<picture>
+<source media="(prefers-color-scheme: light)" width="1148" srcset="https://user-images.githubusercontent.com/52968553/188298495-f4b1aa17-fff2-4b5e-adab-2aaddce22262.png">
+<source media="(prefers-color-scheme: dark)" width="1148" srcset="https://user-images.githubusercontent.com/52968553/188298501-b479534e-db88-4c07-9e72-6bf9f9fd5a8d.png">
+<img width="1148" alt="Setup secrets for GitHub Action" src="https://user-images.githubusercontent.com/52968553/188298495-f4b1aa17-fff2-4b5e-adab-2aaddce22262.png">
+</picture>
 
-```md
-+++
-title = "My presentation"
-outputs = ["Reveal"]
-+++
+Add a new secret with name `NOTION_TOKEN`, paste the copied token into the secret field. Click the green "Add secret" button to save the change.
 
-# Hello, world!
+<picture>
+<source media="(prefers-color-scheme: light)" width="824" srcset="https://user-images.githubusercontent.com/52968553/188298507-5402a19f-dc35-45a9-b7b7-867f38cdb001.png">
+<source media="(prefers-color-scheme: dark)" width="824" srcset="https://user-images.githubusercontent.com/52968553/188298515-3c98fbf3-128e-46ef-971f-b22b6d4da9e1.png">
+<img width="824" alt="Add secret NOTION_TOKEN" src="https://user-images.githubusercontent.com/52968553/188298507-5402a19f-dc35-45a9-b7b7-867f38cdb001.png">
+</picture>
 
-This is my first slide.
+### Duplicate the Notion Template
 
----
+Duplicate this [Notion Template](https://pcloud.notion.site/Notion-DoIt-04bcc51cfe4c49938229c35e4f0a6fb6
+) into your own workspace.
 
-# Hello Mars!
+### Add connection to the Notion Page
 
-This is my second slide
+Visit the page you just duplicated, click the ellipsis button on the top right and add the integration you just created as a connection.
 
----
+<picture>
+<source width="553" media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/52968553/235363588-5083d629-258f-4d46-8977-fedc0285cac0.png">
+<source width="553" media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/52968553/235363618-5458ea76-89c5-4817-9ea3-4d2267b34b08.png">
+<img width="553" alt="Add connection to the Notion Page" src="https://user-images.githubusercontent.com/52968553/235363588-5083d629-258f-4d46-8977-fedc0285cac0.png">
+</picture>
 
-## Mars method
+### Configure you Hugo site
 
-This slide describes the methods and has a pretty plot
-```
+On the page you just shared with the integration, click on the "share" button again, then click the "copy link" button on the bottom right to copy the link to this page.
 
-We could move the slides about Mars into their own section with the following setup.
+<picture>
+<source width="539" media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/52968553/188318147-b0bd8af1-b48c-4a10-b313-3789102f00ce.png">
+<source width="528" media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/52968553/188318215-8d15e203-f262-495c-9e5f-81d8e1287e30.png">
+<img width="539" alt="Copy link" src="https://user-images.githubusercontent.com/52968553/188318147-b0bd8af1-b48c-4a10-b313-3789102f00ce.png">
+</picture>
 
-`content/_index.md`
-```md
-+++
-title = "My presentation"
-outputs = ["Reveal"]
-+++
+Now navigate back to your GitHub repository, open the `notion-hugo.config.ts` file, click to edit the file.
 
-# Hello world!
+<picture>
+<source media="(prefers-color-scheme: light)" width="379" srcset="https://user-images.githubusercontent.com/52968553/188318344-f0b1e7af-f86f-44b5-99b5-74a26410477b.png">
+<source media="(prefers-color-scheme: dark)" width="379" srcset="https://user-images.githubusercontent.com/52968553/188318353-930de66c-ab2a-420a-838c-1ac271ae2cba.png">
+<img width="379" alt="Edit the file on GitHub" src="https://user-images.githubusercontent.com/52968553/188318344-f0b1e7af-f86f-44b5-99b5-74a26410477b.png">
+</picture>
 
-This is my first slide.
-```
+Replace the `page_url` with the link you just copied.
 
-`content/home/mars.md`
-```md
-+++
-weight = 10
-+++
-{{% section %}}
-# Hello Mars!
+<picture>
+<source media="(prefers-color-scheme: light)" width="779" srcset="https://user-images.githubusercontent.com/52968553/188318385-0e49a502-14b9-4abd-8496-e14defbf9138.png">
+<source media="(prefers-color-scheme: dark)" width="779" srcset="https://user-images.githubusercontent.com/52968553/188318389-0fe16143-772b-4c9f-b958-74eb7d5514b2.png">
+<img width="779" alt="Replace page_url" src="https://user-images.githubusercontent.com/52968553/188318385-0e49a502-14b9-4abd-8496-e14defbf9138.png">
+</picture>
 
-This is my second slide
+Click the commit changes button at the bottom to save the file.
 
----
+<picture>
+<source media="(prefers-color-scheme: light)" width="779" srcset="https://user-images.githubusercontent.com/52968553/188318414-b45d159c-274a-47e6-9ff6-b01f4e05379c.png">
+<source media="(prefers-color-scheme: dark)" width="779" srcset="https://user-images.githubusercontent.com/52968553/188318494-b82db93b-cb72-4dcd-acfd-31accdae7ab0.png">
+<img width="779" alt="Commit changes" src="https://user-images.githubusercontent.com/52968553/188318414-b45d159c-274a-47e6-9ff6-b01f4e05379c.png">
+</picture>
 
-## Mars method
+Navigate to Settings -> Pages to enable GitHub Pages for your repository.
 
-This slide describes the methods and has a pretty plot.
-{{% /section %}}
-```
+<picture>
+<source media="(prefers-color-scheme: light)" width="719" srcset="https://user-images.githubusercontent.com/52968553/235363799-db61e5ea-83ef-41ef-b19f-09314db296b0.png">
+<source media="(prefers-color-scheme: dark)" width="719" srcset="https://user-images.githubusercontent.com/52968553/235363817-72cb9203-2b2a-4da1-b6c0-260a31257696.png">
+<img width="719" alt="Enable GitHub Pages" src="https://user-images.githubusercontent.com/52968553/235363799-db61e5ea-83ef-41ef-b19f-09314db296b0.png"></picture>
 
-*Note: `weight` is how you define the order of slides. If you have another `.md` file
-with `weight = 11` it will come after `content/home/method.md`. See [this][weight] for more info.*
+There is one final step to make your website work correctly. Copy the url of your new website, then go to file `config/_default/config.toml` and change the `baseURL` from `https://example.org/` to the url you just copied. Commit the changes and wait for your website to be deployed.
 
-For more information on sections, see [the docs][sections].
+Now, visit your website and you will see your content from Notion is rendered into static webpages successfully.
 
-## Maths
+## Next Step
 
-Maths rendering with [MathJax][mathjax] is supported provided you have access to an internet connection when initially serving the slides.
+Visit the [wiki](https://github.com/HEIGE-PCloud/Notion-Hugo/wiki) to learn more about how to
 
-In short, you write equations in [Tex/LaTex format][texmaths].
+- Pick a different Hugo theme
+- Deploy to other platforms
+- Configure Notion-DoIt
 
-An example of adding an equation to a slide
+## License
 
-```md
-## Cool equations
+This project is open sourced under the [GNU GPL license v3](https://www.gnu.org/licenses/gpl-3.0.html), you may use the project under the terms if you are creating an open source project under a license compatible with it.
 
-Displayed equations are wrapped in double-\$
-
-$$\frac{n!}{k!(n-k)!} = \binom{n}{k}$$  
-
-Inline equations like $E=mc^2$ are wrapped in single-\$
-
-```
-
-![Equation slide](static/images/maths.png?raw=true)
-
-
-## Theme/Styling
-
-If you would like to make any changes to the font, colours, style etc. then this can be
-done in `static/stylesheets/robot-lung-ebi.css`. The current stylesheet is a copy of
-the [robot-lung][robot-lung] theme, which I have changed some colours to match the EBI
-colour scheme.
-
-## Logo
-
-There are two forms of the EBI logo, which can be found in `static/logos/`. There is one
-for white background presentations (`ebi_white_bg.svg`) and one for dark backgrounds
-(`ebi_dark_bg.svg`).  
-If you would like to make any changes to the size, layout, or which logo is used, then
-instructions can be found in [this short tutorial][reveal-hugo-logo].
-
-
-# Deploy
-
-If you would like to share your presentation with others, or even access it without having to run a local server, the presentation is easily deployable to a static website. [Netlify][netlify] is an easy solution that I have used many times. [It's as simple as connecting your GitHub repository][netlify-docs]. See [here][example] for an example presentation deployed with Netlify.
-
-
-
-[revealjs]: https://revealjs.com/
-[hugo]: https://gohugo.io/
-[reveal-hugo-tut]: https://github.com/dzello/reveal-hugo#tutorial
-[reveal-hugo]: https://github.com/dzello/reveal-hugo
-[forestry-blog]: https://forestry.io/blog/harness-the-power-of-static-to-create-presentations/
-[config]: https://github.com/dzello/reveal-hugo#configuration
-[weight]: https://forestry.io/blog/harness-the-power-of-static-to-create-presentations/#additional-markdown-files
-[robot-lung]: https://revealjs-themes.dzello.com/robot-lung.html#/
-[reveal-hugo-logo]: https://reveal-hugo.dzello.com/logo-example/#/
-[sections]: https://github.com/dzello/reveal-hugo#root-vs-section-presentations
-[netlify]: https://www.netlify.com/
-[netlify-docs]: https://docs.netlify.com/configure-builds/get-started/
-[example]: https://tac2.netlify.app/#/
+Consider purchasing a [commercial license](https://buy.stripe.com/aEU4ixg529wA1Fu144) if your project is not compatible with GPLv3.
