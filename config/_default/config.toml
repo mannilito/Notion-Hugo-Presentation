@@ -1,21 +1,4 @@
 baseURL = "https://mannilito.github.io/Notion-Hugo-Presentation/"
 languageCode = "en-us"
 title = "Interaction in Space"
-theme = "reveal-hugo-custom"
-layout = "bundle"
-
-[markup.goldmark.renderer]
-unsafe = true
-
-[outputFormats.Reveal]
-baseName = "index"
-mediaType = "text/html"
-isHTML = true
-
-[params.reveal_hugo]
-custom_theme = "stylesheets/mf-styles.css"
-margin = 0.2
-
-[params.logo]
-src = "/logos/mf-logo.svg"
-alt = "MF logo"
+theme = "DoIt"
