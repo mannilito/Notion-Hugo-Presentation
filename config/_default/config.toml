@@ -1,7 +1,7 @@
 baseURL = "https://mannilito.github.io/Notion-Hugo-Presentation/"
 languageCode = "en-us"
 title = "Interaction in Space"
-theme = ["DoIt"]
+theme = ["reveal-hugo"]
 
 [markup.goldmark.renderer]
 unsafe = true
