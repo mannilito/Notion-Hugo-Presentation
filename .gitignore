@@ -16,3 +16,6 @@ themes/reveal-hugo-custom/layouts/partials/.DS_Store
 themes/reveal-hugo-custom/static/.DS_Store
 themes/reveal-hugo-custom/content/kapitel1/.DS_Store
 themes/reveal-hugo-custom/content/.DS_Store
+.DS_Store
+content/.DS_Store
+content/kapitel1/.DS_Store
