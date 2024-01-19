@@ -11,7 +11,7 @@ const userConfig: UserConfig = {
             // }
             {
                 page_id: '45eb121158b9489480ec000fd25c812b',
-                target_folder: 'content'
+                target_folder: '.'
             }
         ],
         databases: [
