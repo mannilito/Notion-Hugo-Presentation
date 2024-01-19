@@ -1,4 +1,4 @@
 baseURL = "https://mannilito.github.io/Notion-Hugo-Presentation/"
 languageCode = "en-us"
 title = "Interaction in Space"
-theme = "reveal-hugo-custom"
+theme = "reveal-hugo-master"
