@@ -1,0 +1,6 @@
+[submodule "themes/reveal-hugo"]
+	path = themes/reveal-hugo
+	url = https://github.com/dzello/reveal-hugo
+[submodule "themes/reveal-template"]
+	path = themes/reveal-template
+	url = https://github.com/alleyinteractive/reveal-template.git
