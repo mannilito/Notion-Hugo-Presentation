@@ -1,6 +1,6 @@
-baseURL = "http://example.org/"
+baseURL = "https://mannilito.github.io/Notion-Hugo-Presentation/"
 languageCode = "en-gb"
-title = "My New Hugo Site"
+title = "Interaction in Space"
 theme = "reveal-hugo-custom"
 layout = "bundle"
 
